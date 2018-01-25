@@ -1,0 +1,36 @@
+<a href="/logout"><button>Logout</button></a>
+<h1>QUOTE MAKER</h1>
+<h2>
+  Welcome {{user.name}}!
+</h2>
+<p>Quotes: </p>
+<form (submit)='addQuote()'>
+<input type="text" name="quote" [(ngModel)] = 'quote.quote' required minlength="3" #quote.quote="ngModel"/>
+<div class="valid" *ngIf="!quote.valid && (quote.dirty || quote.touched)">quotes must be more than 3 characters!</div>
+<input type="submit" value="Add Quote">
+</form>
+<br>
+<div class='quotes'>
+  <table>
+    <thead>
+      <tr>
+        <td>Quotes</td>
+        <td>Made By</td>
+        <td>Likes</td>
+        <td>Action</td>
+      </tr>
+      <hr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quote of quotes; let idx = index">
+        <td>{{ quote.quote }}</td>
+        <td>{{ quote.created_by }}</td> 
+        <td>{{ quote.likes }}</td>
+        <td><button (click)="addLike(quote._id, idx)">Like</button></td>
+      </tr>
+      <hr>
+    </tbody>
+  </table>
+</div>
+
+

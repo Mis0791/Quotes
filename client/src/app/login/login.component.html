@@ -1,0 +1,7 @@
+<form #userForm="ngForm" (submit)='login()'>
+  <input type="text" name="name" [(ngModel)] = 'user.name' required minlength="3" maxlength="35" 
+  #name="ngModel"/><br>
+  <div class="valid" *ngIf="!name.valid && (name.dirty || name.touched)">Name is not Valid!</div>
+  <br>
+  <input type="submit" value="Login/Reg" [disabled]="!userForm.form.valid"/>
+</form>

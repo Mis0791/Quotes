@@ -1,0 +1,7 @@
+.valid{
+    color: red;
+}
+#show_all{
+    width: 500px;
+    overflow: scroll;
+}
