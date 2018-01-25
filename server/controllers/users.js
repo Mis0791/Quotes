@@ -45,19 +45,24 @@ module.exports ={
     },
 
     addLike: function(req,res){
-        Quote.findOne({_id: req.params.id}).exec(function(err,quote){
+        Quote.findOne({_id: req.params.id}).exec(function(err, quote){
             // console.log('hey', quote)
             quote.likes++;
             // console.log('hey after like', quote)
             quote.save(function(err){
-                console.log("+++++++++++++=")
-                console.log(quote)
-                console.log("+++++++++++++=")
-             res.json(quote)
-            })
-            
+            res.json(quote)
+            })   
         })
+    },
+
+    onDelete: function(req,res){
+        Quote.remove({_id: req.params.id}).exec(function(err){
+            Quote.findOne({_id: req.params.id}).exec(function(err){
+            console.log("+++++++++++++=")
+            res.json(undefined)
+            })
+        })
+
     }
     
-
 }

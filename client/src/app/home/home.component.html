@@ -27,6 +27,7 @@
         <td>{{ quote.created_by }}</td> 
         <td>{{ quote.likes }}</td>
         <td><button (click)="addLike(quote._id, idx)">Like</button></td>
+        <td><button (click)="onDelete(quote._id, idx)">Delete</button></td>
       </tr>
       <hr>
     </tbody>

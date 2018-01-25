@@ -23,8 +23,12 @@ module.exports = function(app){
     })
 
     app.get('/addLike/:id', function(req,res){
-        console.log(req.params.id);
         users.addLike(req,res);
+    })
+
+    app.get('/onDelete/:id', function(req,res){
+        console.log(req.params.id);
+        users.onDelete(req,res);
     })
 
     app.all("**", (request, response) => { response.sendFile(path.resolve("./client/dist/index.html")) });

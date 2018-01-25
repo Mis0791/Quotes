@@ -41,9 +41,23 @@ export class HomeComponent implements OnInit {
      })
    }
 
+   onDelete(id, idx){
+     this._mainService.onDelete(id, ()=>{
+       console.log('deleted')
+    })
+   }
+
+   showQuotes(){
+    this._mainService.showQuotes(this.quotes, (data)=>{
+      this.quotes = data;
+    })
+   }
 
   ngOnInit() {
     this.checkSess();
+    this._mainService.quotesChange.subscribe((data)=>{
+      this.quotes = data;
+    })
 
     this._mainService.showQuotes(this.quotes, (data)=>{
       console.log(data);
