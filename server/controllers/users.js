@@ -52,6 +52,7 @@ module.exports ={
             quote.save(function(err){
                 console.log("+++++++++++++=")
                 console.log(quote)
+                console.log("+++++++++++++=")
              res.json(quote)
             })
             
